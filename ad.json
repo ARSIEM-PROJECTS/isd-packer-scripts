@@ -31,13 +31,5 @@
         "location": "{{user `location`}}",
         "vm_size": "{{user `vm_size`}}",
         "async_resourcegroup_delete": true
-    }],
-
-  "provisioners": [
-    {
-      "type": "powershell",
-      "inline": [
-      ]
-    }
-    ]
+    }]
 }
