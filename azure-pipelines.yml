@@ -1,8 +1,20 @@
 # Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
 - task: PackerBuild@1
   inputs:
     templateType: 'custom'
-    customTemplateLocation: '$(System.DefaultWorkingDirectory)/ad.json'
+    customTemplateLocation: 'ad.json'
     customTemplateParameters: |
       {
       "client_id": "$(client_it)",
@@ -14,17 +26,7 @@
       "location": "$(TF_VAR_AREG)",
       "vm_size": "Standard_B2s"
       }
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
 
-trigger:
-- master
-
-pool:
-  vmImage: ubuntu-latest
-
-steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
