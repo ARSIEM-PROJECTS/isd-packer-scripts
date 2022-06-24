@@ -22,7 +22,7 @@
         "tenant_id": "{{user `tenant_id`}}",
         "managed_image_resource_group_name": "{{user    `managed_image_resource_group_name`}}",
         "managed_image_name": "{{user `managed_image_name`}}",
-        "os_type": "Ubuntu",
+        "os_type": "Linux",
         "image_publisher": "Canonical",
         "image_offer": "UbuntuServer",
         "image_sku": "18.04-LTS",
