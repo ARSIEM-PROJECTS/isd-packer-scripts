@@ -1,4 +1,19 @@
 # Starter pipeline
+- task: PackerBuild@1
+  inputs:
+    templateType: 'custom'
+    customTemplateLocation: '$(System.DefaultWorkingDirectory)/ad.json'
+    customTemplateParameters: |
+      {
+      "client_id": "$(client_it)",
+      "client_secret": "$(client_secret)",
+      "subscription_id": "$(subscription_id)",
+      "tenant_id": "$(tenant_id)",
+      "managed_image_resource_group_name": "$(TF_VAR_MANAGED_IMAGE_RESOURCE_GROUP_NAME)",
+      "managed_image_name": "$(TF_VAR_MANAGED_IMAGE_NAME)",
+      "location": "$(TF_VAR_AREG)",
+      "vm_size": "Standard_B2s"
+      }
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
