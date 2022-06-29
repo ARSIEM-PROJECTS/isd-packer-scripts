@@ -32,7 +32,7 @@ git clone https://github.com/sean-custer/Arsiem-Guac-files.git
 mv Arsiem-Guac-files/guacamole.properties /etc/guacamole/
 mkdir /etc/guacamole/{extensions,lib}
 echo "GUACAMOLE_HOME=/etc/guacamole" >> /etc/default/tomcat8
-apt-get install python3 python3-pip -y
+apt-get install python-pip -y
 pip install lxml 
 pip install requests
 apt install jq -y
