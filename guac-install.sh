@@ -33,6 +33,3 @@ mv Arsiem-Guac-files/guacamole.properties /etc/guacamole/
 mkdir /etc/guacamole/{extensions,lib}
 echo "GUACAMOLE_HOME=/etc/guacamole" >> /etc/default/tomcat8
 apt-get install python-pip -y
-pip install lxml 
-pip install requests
-apt install jq -y
