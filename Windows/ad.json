@@ -16,25 +16,32 @@
 
     "builders": [{
         "type": "azure-arm",
+        
         "client_id": "{{user `client_id`}}",
         "client_secret": "{{user `client_secret`}}",
         "subscription_id": "{{user `subscription_id`}}",
         "tenant_id": "{{user `tenant_id`}}",
+        
         "managed_image_resource_group_name": "{{user    `managed_image_resource_group_name`}}",
         "managed_image_name": "{{user `managed_image_name`}}",
-        "os_type": "Linux",
-        "image_publisher": "Canonical",
-        "image_offer": "UbuntuServer",
-        "image_sku": "18.04-LTS",
-        "communicator": "ssh",
-        "ssh_username": "packer",
+        
+        "os_type": "Windows",
+        "image_publisher": "MicrosoftWindowsDesktop",
+        "image_offer": "Windows-10",
+        "image_sku": "20h2-pro",
+        
+        "communicator": "winrm",
+        "winrm_use_ssl": true,
+        "winrm_insecure": true,
+        "winrm_timeout": "5m",
+        "winrm_username": "packer",
+        
         "location": "{{user `location`}}",
         "vm_size": "{{user `vm_size`}}",
         "async_resourcegroup_delete": true
     }],
     "provisioners": [{
-        "type": "shell",
-        "execute_command": "while [ ! -f /var/lib/cloud/instance/boot-finished ]; do echo 'Waiting for cloud-init...'; sleep 1; done; sudo sh '{{.Path}}'",
-        "scripts": ["Ubuntu/ubuntu-install-rdp.sh"]
+        "type": "powershell",
+        "scripts": ["Windows/windows-install-git.ps1"]
     }]
 }
