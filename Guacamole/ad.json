@@ -1,0 +1,40 @@
+{
+    "variables": {
+        "client_id": "",
+        "client_secret": "",
+        "tenant_id": "",
+        "subscription_id": "",
+        "managed_image_name": "",
+        "managed_image_resource_group_name": "",
+        "WorkingDirectory": "{{env `System_DefaultWorkingDirectory`}}",
+        "publisher": "",
+        "offer": "",
+        "sku": "",
+        "location": "",
+        "vm_size": ""
+    },
+
+    "builders": [{
+        "type": "azure-arm",
+        "client_id": "{{user `client_id`}}",
+        "client_secret": "{{user `client_secret`}}",
+        "subscription_id": "{{user `subscription_id`}}",
+        "tenant_id": "{{user `tenant_id`}}",
+        "managed_image_resource_group_name": "{{user    `managed_image_resource_group_name`}}",
+        "managed_image_name": "{{user `managed_image_name`}}",
+        "os_type": "Linux",
+        "image_publisher": "Canonical",
+        "image_offer": "UbuntuServer",
+        "image_sku": "18.04-LTS",
+        "communicator": "ssh",
+        "ssh_username": "packer",
+        "location": "{{user `location`}}",
+        "vm_size": "{{user `vm_size`}}",
+        "async_resourcegroup_delete": true
+    }],
+    "provisioners": [{
+        "type": "shell",
+        "execute_command": "sudo sh '{{.Path}}'",
+        "scripts": ["guac-install.sh", "guac-pip-commands.sh"]
+    }]
+}
