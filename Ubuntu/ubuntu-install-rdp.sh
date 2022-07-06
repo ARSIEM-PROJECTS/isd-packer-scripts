@@ -1,3 +1,6 @@
+#Use this file to automate:
+#   1. Installation of xrdp and freerdp
+#   2. Installation of xfce desktop environment
 apt-get update
 apt-get upgrade -y
 apt-get -y install xfce4

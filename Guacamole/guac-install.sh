@@ -1,8 +1,6 @@
 #! /bin/bash
 #Use this file to automate:
 #   1. Installation of Guacamole
-#   2. ip capture of all VM's within resource group, storing them to guac's user-mapping.xml
-#Note - this machine does not need to be RDP'd into. Older versions have been commented out
 apt-get update
 apt-get upgrade -y
 apt-get install gcc-6 g++-6 libossp-uuid-dev libavcodec-dev libpango1.0-dev libssh2-1-dev libcairo2-dev libjpeg-turbo8-dev libpng-dev libavutil-dev libswscale-dev libfreerdp-dev libvncserver-dev libssl-dev libvorbis-dev libwebp-dev -y
