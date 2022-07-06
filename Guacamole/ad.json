@@ -35,6 +35,6 @@
     "provisioners": [{
         "type": "shell",
         "execute_command": "sudo sh '{{.Path}}'",
-        "scripts": ["guac-install.sh", "guac-pip-commands.sh"]
+        "scripts": ["./guac-install.sh", "./guac-pip-commands.sh"]
     }]
 }

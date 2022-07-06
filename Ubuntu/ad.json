@@ -35,6 +35,6 @@
     "provisioners": [{
         "type": "shell",
         "execute_command": "sudo sh '{{.Path}}'",
-        "scripts": ["ubuntu-install-rdp.sh"]
+        "scripts": ["./ubuntu-install-rdp.sh"]
     }]
 }
